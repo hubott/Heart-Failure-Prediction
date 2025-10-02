@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
-df = pd.read_csv('heart.csv')
+df = pd.read_csv('data/heart.csv')
 print(df.head())
 print(df.info())
 print(df.describe())
