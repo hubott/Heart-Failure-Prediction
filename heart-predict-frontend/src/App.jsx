@@ -27,7 +27,7 @@ export default function App() {
     ["Age","RestingBP","Cholesterol","FastingBS","MaxHR","Oldpeak"].forEach(k => {
       numericData[k] = parseFloat(numericData[k]);
     });
-    const res = await fetch("http://127.0.0.1:8000/predict", {
+    const res = await fetch("http://3.26.33.59:8000/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(numericData)
