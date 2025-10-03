@@ -1,9 +1,124 @@
 # Heart-Failure-Prediction
-A Machine Learning Model that predicts Heart Failure based on a number of factors. The data for this prediction was obtained from Kaggle, specifically https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
 
-To run this model for yourself:
-1. Clone the repository onto your local machine
-2. Run the python file
-3. Check the results in the classification report txt file
+A Machine Mearning Web Application that predicts the likelihood of heart failure based on patient data. 
+Built with FastAPI for the backend and React + Vite for the frontend.
+The data for this model was obtained from Kaggle, specifically https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
 
-In the future, functionality will be added to allow for custom data to be input and a prediction to be made from that
+
+Frontend hosted using AWS S3: http://heart-failure-prediction-model.s3-website-ap-southeast-2.amazonaws.com
+Live Backend API: http://3.26.33.59:8000/predict
+
+##Features:
+
+Predicts heart failure using a RandomForest model - which will be improved to a stacked model in the future
+Uses numerical and categorical data
+One-hot encoding for categorical features and standard scaling for numerical features
+Frontend allows users to input data themselves and get a prediction
+
+Heart-Failure-Prediction/
+├─ heart-predict-backend/
+│  ├─ app.py            # FastAPI backend
+│  ├─ Model.py          # Builds the model and saves to models/
+│  ├─ models/
+│  │  └─ heart_model.pkl
+│  ├─ data/
+│  │   └─ heart.csv
+│  └─ requirements.txt
+├─ heart-predict-frontend/
+│  ├─ src/
+│  │  └─ App.jsx
+│  ├─ package.json
+│  └─ dist/            # Built files for deployment
+├─ README.md
+└─ .gitignore
+
+
+##Installation:
+
+###Backend 
+
+Navigate to the backend folder
+  cd heart-predict-backend
+
+Create and activate a virtual environment
+  python3 -m venv venv
+  source venv/bin/activate      # Linux/macOS
+  venv\Scripts\activate         # Windows
+
+Install Dependencies
+  pip install -r requirements.txt
+
+###Frontend
+
+Navigate to the frontend folder
+  cd heart-predict-frontend
+
+Install node.js dependencies
+  npm install
+
+Start the development server
+  npm run dev
+
+##Running the project
+
+###Backend (API)
+
+python -m uvicorn app:app --host 0.0.0.0 --port 8000
+
+- Endpoint POST /predict
+- Example request body:
+    {
+  "Age": 24,
+  "Sex": "M",
+  "ChestPainType": "ATA",
+  "RestingBP": 120,
+  "Cholesterol": 220,
+  "FastingBS": 0,
+  "RestingECG": "Normal",
+  "MaxHR": 175,
+  "ExerciseAngina": "Y",
+  "Oldpeak": 1,
+  "ST_Slope": "Flat"
+}
+- Reponse
+  {
+    "prediction": 0,
+  }
+
+###Frontend
+
+During development, update App.jsx to point to your local backend API (http://127.0.0.1:8000/predict)
+To build for production:
+  npm run build
+Upload the dist/ folder contents to your S3 bucket for hosting
+
+##Deployment
+
+###Frontend
+
+Use AWS S3 to host the static files
+Make sure the bucket is public and has the correct CORS policy:
+  [
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["GET", "POST", "PUT", "DELETE", "HEAD"],
+    "AllowedOrigins": ["*"],
+    "ExposeHeaders": []
+  }
+]
+
+Upload all files from dist/.
+
+###Backend
+
+Use AWS EC2 for hosting the API.
+
+Install Python, create a virtual environment, install dependencies, and run the API with Uvicorn or Gunicorn.
+
+Make sure security groups allow inbound traffic on port 8000 (or your chosen port).
+
+##Usage
+
+Enter patient data in the frontend
+Click Predict
+Result shows the prediction
