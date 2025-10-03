@@ -71,12 +71,12 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Resting Blood Pressure: <input name="RestingBP" value={formData.RestingBP} onChange={handleChange} /></label>
+          <label className="numeric-input">Resting Blood Pressure (mm Hg): <input name="RestingBP" value={formData.RestingBP} onChange={handleChange} /></label>
           <br/>
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Cholesterol: <input name="Cholesterol" value={formData.Cholesterol} onChange={handleChange} /></label>
+          <label className="numeric-input">Cholesterol (mm/dl): <input name="Cholesterol" value={formData.Cholesterol} onChange={handleChange} /></label>
           <br/>
         </div>
 
@@ -117,7 +117,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Old Peak: <input name="Oldpeak" value={formData.Oldpeak} onChange={handleChange} /></label>
+          <label className="numeric-input">Old Peak (ST) : <input name="Oldpeak" value={formData.Oldpeak} onChange={handleChange} /></label>
           <br/>
         </div>
 
@@ -134,7 +134,7 @@ export default function App() {
 
         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="submit">Predict</button>
       </form>
-      <h2>Result: {result !== null ? result : "No prediction yet"}</h2>
+      <h2>Result: {result === 1 && "Heart Failure"} {result === 0 && "No Heart Failure"} {result === null && "No Prediction Yet"}</h2>
     </div>
   );
 }
