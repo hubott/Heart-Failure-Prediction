@@ -8,13 +8,14 @@ The data for this model was obtained from Kaggle, specifically https://www.kaggl
 Frontend hosted using AWS S3: http://heart-failure-prediction-model.s3-website-ap-southeast-2.amazonaws.com
 Live Backend API: http://3.26.33.59:8000/predict
 
-##Features:
+## Features:
 
 Predicts heart failure using a RandomForest model - which will be improved to a stacked model in the future
 Uses numerical and categorical data
 One-hot encoding for categorical features and standard scaling for numerical features
 Frontend allows users to input data themselves and get a prediction
 
+<pre> 
 Heart-Failure-Prediction/
 ├─ heart-predict-backend/
 │  ├─ app.py            # FastAPI backend
@@ -31,11 +32,13 @@ Heart-Failure-Prediction/
 │  └─ dist/            # Built files for deployment
 ├─ README.md
 └─ .gitignore
+  </pre>
 
 
-##Installation:
 
-###Backend 
+## Installation:
+
+### Backend 
 
 Navigate to the backend folder
   cd heart-predict-backend
@@ -48,7 +51,7 @@ Create and activate a virtual environment
 Install Dependencies
   pip install -r requirements.txt
 
-###Frontend
+### Frontend
 
 Navigate to the frontend folder
   cd heart-predict-frontend
@@ -59,9 +62,9 @@ Install node.js dependencies
 Start the development server
   npm run dev
 
-##Running the project
+## Running the project
 
-###Backend (API)
+### Backend (API)
 
 python -m uvicorn app:app --host 0.0.0.0 --port 8000
 
@@ -85,16 +88,16 @@ python -m uvicorn app:app --host 0.0.0.0 --port 8000
     "prediction": 0,
   }
 
-###Frontend
+### Frontend
 
 During development, update App.jsx to point to your local backend API (http://127.0.0.1:8000/predict)
 To build for production:
   npm run build
 Upload the dist/ folder contents to your S3 bucket for hosting
 
-##Deployment
+## Deployment
 
-###Frontend
+### Frontend
 
 Use AWS S3 to host the static files
 Make sure the bucket is public and has the correct CORS policy:
@@ -109,7 +112,7 @@ Make sure the bucket is public and has the correct CORS policy:
 
 Upload all files from dist/.
 
-###Backend
+### Backend
 
 Use AWS EC2 for hosting the API.
 
@@ -117,7 +120,7 @@ Install Python, create a virtual environment, install dependencies, and run the 
 
 Make sure security groups allow inbound traffic on port 8000 (or your chosen port).
 
-##Usage
+## Usage
 
 Enter patient data in the frontend
 Click Predict
