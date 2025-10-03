@@ -134,7 +134,7 @@ export default function App() {
 
         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="submit">Predict</button>
       </form>
-      <h2>Result: {result === 1 && "Heart Failure"} {result === 0 && "No Heart Failure"} {result === null && "No Prediction Yet"}</h2>
+      <h2>Prediction: {result === 1 && "Heart Failure"} {result === 0 && "No Heart Failure"} {result === null && "No Prediction Yet"}</h2>
     </div>
   );
 }
