@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import joblib
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
@@ -40,3 +42,21 @@ y_pred = clf.predict(X_test)
 report = classification_report(y_test, y_pred)
 with open('classification_report.txt', 'w') as f:
         f.write(f"{report}\n")
+
+joblib.dump(clf, "models/heart_model.pkl")
+
+new_input = pd.DataFrame([{
+        "Age": 49,
+        "Sex": 'F',
+        "ChestPainType": 'ASY',
+        "RestingBP": 138,
+        "Cholesterol": 214,
+        "FastingBS": 0,
+        "RestingECG": 'Normal',
+        "MaxHR": 108,
+        "ExerciseAngina": 'Y',
+        "Oldpeak": 1.5,
+        "ST_Slope": 'Flat'
+
+}])
+print(clf.predict(new_input))

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heart Failure Prediction</title>
+</head>
+<body>
+  <h1>Heart Failure Prediction</h1>
+  
+  <form id="predictionForm">
+    <label>Age: <input type="number" name="Age" required></label><br>
+    <label>Sex: 
+      <select name="Sex">
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+    </label><br>
+    <label>Chest Pain Type: <input type="text" name="ChestPainType" required></label><br>
+    <label>Resting BP: <input type="number" name="RestingBP" required></label><br>
+    <label>Cholesterol: <input type="number" name="Cholesterol" required></label><br>
+    <label>Fasting BS: <input type="number" name="FastingBS" required></label><br>
+    <label>Resting ECG: <input type="text" name="RestingECG" required></label><br>
+    <label>Max HR: <input type="number" name="MaxHR" required></label><br>
+    <label>Exercise Angina: 
+      <select name="ExerciseAngina">
+        <option value="Y">Y</option>
+        <option value="N">N</option>
+      </select>
+    </label><br>
+    <label>Oldpeak: <input type="number" step="0.1" name="Oldpeak" required></label><br>
+    <label>ST Slope: <input type="text" name="ST_Slope" required></label><br><br>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  <h2>Result:</h2>
+  <pre id="result">Waiting for prediction...</pre>
+
+  <script>
+    const form = document.getElementById("predictionForm");
+    const resultBox = document.getElementById("result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Convert numbers properly
+      data.Age = parseInt(data.Age);
+      data.RestingBP = parseInt(data.RestingBP);
+      data.Cholesterol = parseInt(data.Cholesterol);
+      data.FastingBS = parseInt(data.FastingBS);
+      data.MaxHR = parseInt(data.MaxHR);
+      data.Oldpeak = parseFloat(data.Oldpeak);
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        resultBox.textContent = JSON.stringify(result, null, 2);
+      } catch (err) {
+        resultBox.textContent = "Error: " + err;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Styles for a numerical input in a React form */
+.numeric-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafbfc;
+  color: #222;
+  box-sizing: border-box;
+}
+
+.numeric-input:focus {
+  border-color: #1976d2;
+  background: #fff;
+}
+
+.numeric-input::-webkit-input-placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+.numeric-input:-ms-input-placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+.numeric-input::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+/* Remove number input spinners for Chrome, Safari, Edge */
+.numeric-input[type="number"]::-webkit-outer-spin-button,
+.numeric-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input spinners for Firefox */
+.numeric-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column; /* label on top */
+  margin-bottom: 1px;
+}
+
+.form-field label {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.input-box {
+  width: 200px;          /* make all inputs the same width */
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 6px;
+  background: #fafbfc;
+  box-sizing: border-box;
+}
+
+.input-box:focus {
+  border-color: #1976d2;
+  background: #fff;
+}
+
+/* Apply to number and select elements */
+input.input-box,
+select.input-box {
+  font-size: 1rem;
+}
+
+
+.select-input {
+  width: 100%;
+  max-width: 320px;
+  height: 25px;
+  padding: 10px 12px top: 6px;
+  font-size: 1rem;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafbfc;
+  color: #222;
+  box-sizing: border-box;
+}
