@@ -15,6 +15,7 @@ export default function App() {
     ST_Slope: "Flat"
   });
   const [result, setResult] = useState(null);
+  const [confidence, setConfidence] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +28,14 @@ export default function App() {
     ["Age","RestingBP","Cholesterol","FastingBS","MaxHR","Oldpeak"].forEach(k => {
       numericData[k] = parseFloat(numericData[k]);
     });
-    const res = await fetch("http://3.26.33.59:8000/predict", {
+    const res = await fetch("http://127.0.0.1:8000/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(numericData)
     });
     const json = await res.json();
     setResult(json.prediction);
+    setConfidence(json.confidence);
   };
 
   return (
@@ -134,7 +136,7 @@ export default function App() {
 
         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="submit">Predict</button>
       </form>
-      <h2>Prediction: {result === 1 && "Heart Failure"} {result === 0 && "No Heart Failure"} {result === null && "No Prediction Yet"}</h2>
+      <h2>Prediction: {result === 1 && "Heart Failure with confidence " + (confidence * 100).toFixed(2) + "%"} {result === 0 && "No Heart Failure with confidence " + (confidence * 100).toFixed(2) + "%"} {result === null && "No Prediction Yet"}</h2>
     </div>
   );
 }
