@@ -74,7 +74,7 @@ y_pred_svm = svm.predict(X_test)
 print("SVM" + classification_report(y_test, y_pred_svm))
 
 # Hyperparameter tuning with GridSearchCV
-grid_search = GridSearchCV(clf, param_grid, cv=5, scoring='f1')
+grid_search = GridSearchCV(clf, param_grid, cv=5, scoring='recall')
 grid_search.fit(X_train, y_train)
 print("Best parameters:", grid_search.best_params_)
 print("Best cross-validation accuracy:", grid_search.best_score_)
