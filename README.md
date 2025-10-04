@@ -4,6 +4,7 @@ A Machine Mearning Web Application that predicts the likelihood of heart failure
 Built with FastAPI for the backend and React + Vite for the frontend.
 The data for this model was obtained from Kaggle, specifically https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
 
+The model will tend to overpredict heart failure due to the fact that all data points are people coming in to a hospital anyway. This tool should not be used for any medical decisions as it is not reliable enough for any such use.
 
 Frontend hosted using AWS S3: http://heart-failure-prediction-model.s3-website-ap-southeast-2.amazonaws.com
 Live Backend API: http://3.26.33.59:8000/predict
