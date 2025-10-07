@@ -47,7 +47,7 @@ export default function App() {
         <div className="form-field">
 
           <label className="numeric-input">Age:
-          <input name="Age" value={formData.Age} onChange={handleChange} />
+          <input type='text' name="Age" value={formData.Age} onChange={handleChange} />
           </label>
           <br/>
         </div>
@@ -75,12 +75,12 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Resting Blood Pressure (mm Hg): <input name="RestingBP" value={formData.RestingBP} onChange={handleChange} /></label>
+          <label className="numeric-input">Resting Blood Pressure (mm Hg): <input type='text' name="RestingBP" value={formData.RestingBP} onChange={handleChange} /></label>
           <br/>
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Cholesterol (mm/dl): <input name="Cholesterol" value={formData.Cholesterol} onChange={handleChange} /></label>
+          <label className="numeric-input">Cholesterol (mm/dl): <input type='text' name="Cholesterol" value={formData.Cholesterol} onChange={handleChange} /></label>
           <br/>
         </div>
 
@@ -106,7 +106,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Max Heart Rate: <input name="MaxHR" value={formData.MaxHR} onChange={handleChange} /></label>
+          <label className="numeric-input">Max Heart Rate: <input type='text' name="MaxHR" value={formData.MaxHR} onChange={handleChange} /></label>
           <br/>
         </div>
 
@@ -121,7 +121,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Old Peak (ST) : <input name="Oldpeak" value={formData.Oldpeak} onChange={handleChange} /></label>
+          <label className="numeric-input">Old Peak (ST) : <input type='text' name="Oldpeak" value={formData.Oldpeak} onChange={handleChange} /></label>
           <br/>
         </div>
 
