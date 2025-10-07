@@ -7,6 +7,7 @@ The data for this model was obtained from Kaggle, specifically https://www.kaggl
 The model will tend to overpredict heart failure due to the fact that all data points are people coming in to a hospital anyway. This tool should not be used for any medical decisions as it is not reliable enough for any such use. The model also tunes hyperparameters to maximise for recall, as in this setting it is better to get a false positive than a false negative.
 
 Frontend hosted using AWS S3: http://heart-failure-prediction-model.s3-website-ap-southeast-2.amazonaws.com
+
 Live Backend API: http://3.26.33.59:8000/predict
 
 ## Features:
