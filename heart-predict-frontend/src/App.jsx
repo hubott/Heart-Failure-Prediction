@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './App.css';
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -41,9 +42,10 @@ export default function App() {
   return (
     <div>
       <h1 className="text-xl font-bold mb-4">Heart Failure Prediction</h1>
-      <form className="max-w-md mx-auto bg-white p-6 rounded shadow-md space-y-4" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
 
         <div className="form-field">
+
           <label className="numeric-input">Age:
           <input name="Age" value={formData.Age} onChange={handleChange} />
           </label>
@@ -51,7 +53,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Sex:
+          <label className="dropdown-field">Sex:
             <select name="Sex" value={formData.Sex} onChange={handleChange}>
               <option value="M">M</option>
               <option value="F">F</option>
@@ -61,7 +63,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Chest Pain Type:
+          <label className="dropdown-field">Chest Pain Type:
             <select name="ChestPainType" value={formData.ChestPainType} onChange={handleChange}>
               <option value="TA">Typical Angina</option>
               <option value="ATA">Atypical Angina</option>
@@ -83,7 +85,7 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Fasting Blood Sugar:
+          <label className="dropdown-field">Fasting Blood Sugar:
             <select name="FastingBS" value={formData.FastingBS} onChange={handleChange}>
               <option value={1}>FastingBS {'>'} 120 mg/dl</option>
               <option value="ATA">FastingBS {'≤'} 120 mg/dl</option>
@@ -93,8 +95,8 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Resting ECG:
-            <select className="select-input" name="RestingECG" value={formData.RestingECG} onChange={handleChange}>
+          <label className="dropdown-field">Resting ECG:
+            <select name="RestingECG" value={formData.RestingECG} onChange={handleChange}>
               <option value="Normal">Normal</option>
               <option value="ST">ST-T wave abnormality</option>
               <option value="LVH">showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
@@ -109,8 +111,8 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">Exercise-Induced Angina:
-            <select className="select-input" name="ExerciseAngina" value={formData.ExerciseAngina} onChange={handleChange}>
+          <label className="dropdown-field">Exercise-Induced Angina:
+            <select name="ExerciseAngina" value={formData.ExerciseAngina} onChange={handleChange}>
               <option value="Y">Yes</option>
               <option value="N">No</option>
             </select>
@@ -124,13 +126,13 @@ export default function App() {
         </div>
 
         <div className="form-field">
-          <label className="numeric-input">ST-Slope:
-            <select className="select-input" name="ST_Slope" value={formData.ST_Slope} onChange={handleChange}>
+          <label className="dropdown-field">ST-Slope:
+            <select  name="ST_Slope" value={formData.ST_Slope} onChange={handleChange}>
               <option value="Up">Upsloping</option>
               <option value="Flat">No Slope</option>
               <option value="Down">Downsloping</option>
             </select>
-          </label>
+          </label>    
           <br/>
         </div>
 

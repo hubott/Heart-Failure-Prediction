@@ -1,42 +1,171 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* ====== Global Styles ====== */
+body {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+/* ====== Container ====== */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
+}
+
+/* ====== Header ====== */
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+/* ====== Form ====== */
+form {
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ====== Form Fields ====== */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+/* ====== Input & Select ====== */
+input,
+select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* ====== Button ====== */
+button {
+  width: 100%;
+  background-color: #7e9bd8;
+  color: white;
+  font-size: 1rem;
+  max-width: 900px;
+  font-weight: 500;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 1rem;
+  flex-direction: column;
+}
+
+button:hover {
+  background-color: #5166a1;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ====== Prediction Result ====== */
+h2 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #111827;
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 480px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+select:hover {
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+select {
+  max-width: 220px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.numeric-input {
+  display: flex;
+  font-weight: 500;
+  color: #374151;
+  background-color: #7e9bd8;
+  max-width: 700px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.numeric-input input {
+  flex-direction: column;
+  width: 60%;
+  max-width: 50px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+  outline: none;
+  text-align: center;
+}
+.numeric-input input:focus {
+  border-color: #2563eb;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
-.read-the-docs {
-  color: #888;
+
+.dropdown-field {
+  display: flex;
+  flex-direction: column; /* puts label and select on separate lines */
+  align-items: center;    /* centers both horizontally */
+  text-align: center;
+  width: 100%;
+  background-color: #7e9bd8;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+  padding: 10px;
+}
+
+.dropdown-field select {
+  width: 60%;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 }
