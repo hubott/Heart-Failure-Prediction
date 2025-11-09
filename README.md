@@ -1,6 +1,6 @@
 # Heart-Failure-Prediction
 
-A Machine Mearning Web Application that predicts the likelihood of heart failure based on patient data. 
+A Machine Learning Web Application that predicts the likelihood of heart failure based on patient data. 
 Built with FastAPI for the backend and React + Vite for the frontend.
 The data for this model was obtained from Kaggle, specifically https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
 
